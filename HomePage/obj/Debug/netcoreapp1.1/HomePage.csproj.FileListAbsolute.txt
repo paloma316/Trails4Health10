@@ -1,0 +1,10 @@
+C:\Users\Paloma\source\repos\HomePage\HomePage\bin\Debug\netcoreapp1.1\HomePage.deps.json
+C:\Users\Paloma\source\repos\HomePage\HomePage\bin\Debug\netcoreapp1.1\HomePage.runtimeconfig.json
+C:\Users\Paloma\source\repos\HomePage\HomePage\bin\Debug\netcoreapp1.1\HomePage.runtimeconfig.dev.json
+C:\Users\Paloma\source\repos\HomePage\HomePage\bin\Debug\netcoreapp1.1\HomePage.dll
+C:\Users\Paloma\source\repos\HomePage\HomePage\bin\Debug\netcoreapp1.1\HomePage.pdb
+C:\Users\Paloma\source\repos\HomePage\HomePage\obj\Debug\netcoreapp1.1\HomePage.csproj.CoreCompileInputs.cache
+C:\Users\Paloma\source\repos\HomePage\HomePage\obj\Debug\netcoreapp1.1\HomePage.AssemblyInfo.cs
+C:\Users\Paloma\source\repos\HomePage\HomePage\obj\Debug\netcoreapp1.1\HomePage.dll
+C:\Users\Paloma\source\repos\HomePage\HomePage\obj\Debug\netcoreapp1.1\HomePage.pdb
+C:\Users\Paloma\source\repos\HomePage\HomePage\obj\Debug\netcoreapp1.1\HomePage.csprojResolveAssemblyReference.cache
