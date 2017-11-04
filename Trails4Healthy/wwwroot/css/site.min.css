@@ -1,0 +1,26 @@
+body{
+    padding-top:50px;padding-bottom:20px
+
+}
+
+.body-content{
+    padding-left:15px;padding-right:15px
+
+}
+.carousel-caption p{
+    font-size:20px;line-height:1.4
+
+}
+.carousel-inner .item img[src$=".jpg"] {
+    max-height: 600px !important;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0;
+    margin-left: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+}#qrCode{margin:15px}@media screen and (max-width:767px){
+ .carousel-caption{
+     display:none
+
+ }}

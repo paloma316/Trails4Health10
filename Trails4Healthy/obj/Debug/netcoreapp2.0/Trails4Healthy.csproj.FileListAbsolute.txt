@@ -1,0 +1,11 @@
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\bin\Debug\netcoreapp2.0\Trails4Healthy.deps.json
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\bin\Debug\netcoreapp2.0\Trails4Healthy.runtimeconfig.json
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\bin\Debug\netcoreapp2.0\Trails4Healthy.runtimeconfig.dev.json
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\bin\Debug\netcoreapp2.0\Trails4Healthy.dll
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\bin\Debug\netcoreapp2.0\Trails4Healthy.pdb
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\obj\Debug\netcoreapp2.0\Trails4Healthy.csprojResolveAssemblyReference.cache
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\obj\Debug\netcoreapp2.0\Trails4Healthy.csproj.CoreCompileInputs.cache
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\obj\Debug\netcoreapp2.0\Trails4Healthy.AssemblyInfoInputs.cache
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\obj\Debug\netcoreapp2.0\Trails4Healthy.AssemblyInfo.cs
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\obj\Debug\netcoreapp2.0\Trails4Healthy.dll
+C:\Users\Paloma\source\repos\Trails4Healthy\Trails4Healthy\obj\Debug\netcoreapp2.0\Trails4Healthy.pdb
