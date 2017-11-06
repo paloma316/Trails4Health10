@@ -1,0 +1,41 @@
+﻿@model Trails4Healthy.Models.LoginClass
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+
+
+<html>
+<head>
+
+    <link href="~/css/LoginCss.css" rel="stylesheet" />
+</head>
+
+<body>
+  
+   
+    <form asp-action="Login" asp-controller="Login" method="post">
+        <div class="login-wrap">
+            <h2>Login</h2>
+            <div class="form1">
+                <input type="text" placeholder="Username" name="un" asp-for="username" />
+                <input type="password" placeholder="Password" name="pw" asp-for="pass" />
+                <button type="submit"> Sign in </button>
+                <a href="#"> <p> Don't have an account? Register </p></a>
+            </div>
+        </div>
+        <div asp-validation-summary="All" style="margin-top:90px;"></div>
+
+    </form>
+
+   
+   
+  
+
+ 
+  
+</body>
+</html>
+

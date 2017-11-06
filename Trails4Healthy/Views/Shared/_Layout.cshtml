@@ -26,13 +26,40 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Trails4Healthy</a>
+
+<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Trails4Healthy</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="">Sobre</a></li>
+
+
+                    <li class="dropdown">
+                        <a a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown">Home<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Home" asp-action="Fauna">Fauna</a></li>
+                            <li><a asp-controller="Home" asp-action="Flora">Flora</a></li>
+
+                           
+                        </ul>
+                    </li>
+
+
+         
+           
+                    <li class="dropdown">
+                        <a a asp-area="" asp-controller="Trilho" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown">Trilho<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Login" asp-action="Login" >Criar Trilho</a></li>
+                            <li><a asp-controller="Login" asp-action="Login">Iniciar Trilho</a></li>
+                            
+                            <li><a asp-controller="Trilho" asp-action="Index">Visualizar Trilho</a></li>
+                        </ul>
+                    </li>
+
+                   
+                    <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a></li>
+                    
                 </ul>
             </div>
         </div>
