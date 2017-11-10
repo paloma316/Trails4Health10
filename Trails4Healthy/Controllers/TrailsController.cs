@@ -11,7 +11,11 @@ namespace Trails4Healthy.Controllers
     public class TrailsController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult NewTrail()
+        {
+            return View();
+        }
+        public IActionResult ViewTrails()
         {
             return View();
         }
