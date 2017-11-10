@@ -14,7 +14,7 @@ namespace Trails4Healthy.Controllers
         {
               if (ModelState.IsValid)
               {
-                Repositorio.AddGuestResponse(modelo);
+               
                   return View("Sucesso",modelo);
               }
             else

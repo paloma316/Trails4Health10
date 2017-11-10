@@ -42,23 +42,24 @@
                            
                         </ul>
                     </li>
-
-
          
            
                     <li class="dropdown">
                         <a a asp-area="" asp-controller="Trilho" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown">Trilho<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a asp-controller="Login" asp-action="Login" >Criar Trilho</a></li>
                             <li><a asp-controller="Login" asp-action="Login">Iniciar Trilho</a></li>
+                            <li><a asp-controller="Login" asp-action="Login" >Criar Trilho</a></li>
                             
-                            <li><a asp-controller="Trilho" asp-action="Index">Visualizar Trilho</a></li>
+                            <li><a asp-controller="Login" asp-action="Login">Eliminar Trilho</a></li>
+                            <li><a asp-controller="Login" asp-action="Login">Editar Trilho</a></li>
+                            <li><a asp-controller="Trilho" asp-action="Index">Consultar Trilho</a></li>
                         </ul>
                     </li>
 
-                   
+                    <li><a asp-area="" asp-controller="Home" asp-action="Sobre">Alugar Equipamentos</a></li>
                     <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a></li>
+                    
                     
                 </ul>
             </div>

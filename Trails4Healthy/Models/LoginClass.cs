@@ -8,14 +8,14 @@ namespace Trails4Healthy.Models
 {
     public class LoginClass
     {
-       // [Required(ErrorMessage = "Username is required")] // make the field required
+        [Required(ErrorMessage = "Username is required")] // make the field required
         [Display(Name = "Username")]
         public string username { get; set; }
 
 
-        [Required(ErrorMessage = "Username is required")]
+        [Required(ErrorMessage = "Pass is required")]
         [Display(Name = "Password")]
-       // [RegularExpression(@"w{6}",ErrorMessage ="Tem de ter pelo menos 8 carateres")]
-        public string pass { get; set; }
+        [RegularExpression(@"\w{6}",ErrorMessage ="Tem de ter pelo menos 6 carateres")]
+         public string pass { get; set; }
     }
 }
