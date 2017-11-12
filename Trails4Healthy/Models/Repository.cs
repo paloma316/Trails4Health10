@@ -12,9 +12,9 @@ namespace Trails4Healthy.Models
     {
         private static List<CreateTrail> TrailCreated = new List<CreateTrail>();
 
-        public static void AddCreateTrail(CreateTrail Trails)
+        public static void AddCreateTrail(CreateTrail trail)
         {
-            TrailCreated.Add(Trails);
+            TrailCreated.Add(trail);
         }
 
         public static IEnumerable<CreateTrail> Trails
