@@ -1,18 +1,17 @@
 ﻿<Properties StartupConfiguration="{318380A3-D21E-463C-B366-B052DFCF44C6}|Default">
   <MonoDevelop.Ide.ItemProperties.Trails4Healthy PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trails4Healthy/Controllers/TrailsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trails4Healthy/Controllers/LoginController.cs">
     <Files>
-      <File FileName="Trails4Healthy/Controllers/TrailsController.cs" Line="39" Column="37" />
+      <File FileName="Trails4Healthy/Controllers/TrailsController.cs" Line="36" Column="10" />
       <File FileName="Trails4Healthy/Models/Repositorio.cs" Line="1" Column="1" />
       <File FileName="Trails4Healthy/Views/Trails/NewTrail.cshtml" Line="4" Column="1" />
-      <File FileName="Trails4Healthy/Views/Trails/ViewTrails.cshtml" Line="30" Column="47" />
+      <File FileName="Trails4Healthy/Views/Trails/ViewTrails.cshtml" Line="6" Column="27" />
       <File FileName="Trails4Healthy/Views/Trilho/IniciarTrilho.cshtml" Line="1" Column="1" />
       <File FileName="Trails4Healthy/Views/Shared/_Layout.cshtml" Line="55" Column="82" />
       <File FileName="Trails4Healthy/Models/CreateTrail.cs" Line="26" Column="73" />
-      <File FileName="Trails4Healthy/Models/Repository.cs" Line="15" Column="60" />
+      <File FileName="Trails4Healthy/Models/Repository.cs" Line="17" Column="38" />
       <File FileName="Trails4Healthy/Views/Trails/Thanks.cshtml" Line="1" Column="1" />
-      <File FileName="Trails4Healthy/Controllers/LoginController.cs" Line="36" Column="2" />
-      <File FileName="Trails4Healthy/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Trails4Healthy/Controllers/LoginController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
