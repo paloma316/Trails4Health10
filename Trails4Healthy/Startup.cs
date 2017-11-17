@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Trails4Healthy.Models;
+using Trails4Healthy.Data;
 
 namespace Trails4Healthy
 {
@@ -22,6 +24,7 @@ namespace Trails4Healthy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<Interface, EquipamentoDados>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
