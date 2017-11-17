@@ -1,17 +1,40 @@
 ﻿<Properties StartupConfiguration="{318380A3-D21E-463C-B366-B052DFCF44C6}|Default">
   <MonoDevelop.Ide.ItemProperties.Trails4Healthy PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trails4Healthy/Views/Trails/NewTrail.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trails4Healthy/Models/Status.cs">
     <Files>
-      <File FileName="Trails4Healthy/Controllers/TrailsController.cs" Line="36" Column="13" />
-      <File FileName="Trails4Healthy/Views/Trails/NewTrail.cshtml" Line="43" Column="43" />
-      <File FileName="Trails4Healthy/Views/Trails/ViewTrails.cshtml" Line="26" Column="25" />
+      <File FileName="Trails4Healthy/Controllers/TrailsController.cs" Line="25" Column="14" />
+      <File FileName="Trails4Healthy/Views/Trails/NewTrail.cshtml" Line="2" Column="1" />
+      <File FileName="Trails4Healthy/Views/Trails/ViewTrails.cshtml" Line="3" Column="3" />
       <File FileName="Trails4Healthy/Views/Trilho/IniciarTrilho.cshtml" Line="1" Column="1" />
       <File FileName="Trails4Healthy/Views/Shared/_Layout.cshtml" Line="55" Column="82" />
-      <File FileName="Trails4Healthy/Models/CreateTrail.cs" Line="14" Column="9" />
-      <File FileName="Trails4Healthy/Models/Repository.cs" Line="18" Column="2" />
+      <File FileName="Trails4Healthy/Models/CreateTrail.cs" Line="7" Column="1" />
+      <File FileName="Trails4Healthy/Models/Repository.cs" Line="22" Column="13" />
       <File FileName="Trails4Healthy/Views/Trails/Thanks.cshtml" Line="1" Column="1" />
       <File FileName="Trails4Healthy/Controllers/LoginController.cs" Line="1" Column="1" />
+      <File FileName="Trails4Healthy/Data/EFTrailsRepository.cs" Line="16" Column="38" />
+      <File FileName="Trails4Healthy/Data/ApplicationDBContext.cs" Line="18" Column="6" />
+      <File FileName="Trails4Healthy/Models/Trail.cs" Line="29" Column="47" />
+      <File FileName="Trails4Healthy/Models/Difficulty.cs" Line="1" Column="1" />
+      <File FileName="Trails4Healthy/Models/Status.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Trails4Healthy" expanded="True">
+            <Node name="Trails4Healthy" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Status.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Trails" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
