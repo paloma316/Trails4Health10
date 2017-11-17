@@ -14,6 +14,12 @@
     <div class="panel-body">
 
     <table>
+				<tr>
+            <td>
+                <label asp-for="TrailID">ID:</label>
+            </td>
+            <td><input asp-for="TrailID" /></td>
+        </tr>
         <tr>
             <td>
                 <label asp-for="Name">Nome do trilho:</label>
@@ -30,7 +36,11 @@
             <td>
                 <label asp-for="Difficulty">Dificuldade:</label>
             </td>
-            <td><input asp-for="Difficulty" /></td>
+            <td><select asp-for="Difficulty" />
+                    <option value="">Escolha uma opeção</option>
+                    <option value="Dificil">Dificil</option>
+                    <option value="Facil">Facil</option>
+					<option value="Intermedio">Intermedio</option></td>
         </tr>
         <tr>
             <td>

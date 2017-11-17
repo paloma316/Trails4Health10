@@ -12,6 +12,9 @@ namespace Trails4Healthy.Models
     public class CreateTrail
     {
         
+        [Required(ErrorMessage = "Insira o ID")]
+        public int TrailID { get; set; }
+
             [Required(ErrorMessage = "Insira o nome do trilho")]
             public string Name { get; set; }
 
