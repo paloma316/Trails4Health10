@@ -1,0 +1,70 @@
+﻿@model Trails4Healthy.Models.CreateTrail
+
+@{ViewData["Title"]="Create Trail";}
+
+
+<div class="panel panel-primary">
+
+<div class="panel-heading">
+
+<h3 class="panel-title">Trilho</h3>
+
+        </div>
+    <form asp-action="NewTrail" method="post">
+    <div class="panel-body">
+
+    <table>
+				<tr>
+            <td>
+                <label asp-for="TrailID">ID:</label>
+            </td>
+            <td><input asp-for="TrailID" /></td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Name">Nome do trilho:</label>
+            </td>
+            <td><input asp-for="Name" /></td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Distance">Distância:</label>
+            </td>
+            <td><input asp-for="Distance" /></td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Difficulty">Dificuldade:</label>
+            </td>
+            <td><select asp-for="Difficulty" />
+                    <option value="">Escolha uma opeção</option>
+                    <option value="Dificil">Dificil</option>
+                    <option value="Facil">Facil</option>
+					<option value="Intermedio">Intermedio</option></td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Available">Disponibilidade:</label>
+            </td>
+            <td>
+                <select asp-for="Available" />
+                    <option value="">Escolha uma opeção</option>
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                
+                
+            </td>
+        </tr>
+       
+    </table>
+
+
+    <div asp-validation-summary="All"></div>
+
+
+        </div>
+
+    <div class="panel-footer"><button type="submit">Submit Trail</button></div>
+
+    </form>
+</div>
