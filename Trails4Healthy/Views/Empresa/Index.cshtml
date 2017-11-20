@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Empresa>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Lista Empresas</h2>
+
+
+<html>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome Empresa</th>
+                <th>Contactos</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in Model)
+            {
+                <tr>
+                    <td>@e.NomeEmpresa</td>
+                    <td>@e.Contactos</td>
+                    
+                
+                </tr>
+
+            }
+        </tbody>
+    </table>
+ 
+</body>
+</html>
+
+
+
+

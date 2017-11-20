@@ -32,5 +32,10 @@ namespace Trails4Healthy.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult Registrar()
+        {
+            return View();
+        }
     }
 }

@@ -24,7 +24,9 @@ namespace Trails4Healthy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddTransient<Interface, EquipamentoDados>();
+            services.AddTransient<InterfaceEquipamento, DadosEquipamento>();
+            services.AddTransient<InterfaceEmpresa, DadosEmpresa>();
+            services.AddTransient<InterfaceTurista, DadosTurista>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

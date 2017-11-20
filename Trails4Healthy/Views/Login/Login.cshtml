@@ -23,7 +23,7 @@
                 <input type="text" placeholder="Username"  asp-for="username" />
                 <input type="password" placeholder="Password"  asp-for="pass" />
                 <button type="submit"> Sign in </button>
-                <a href="#"> <p> Don't have an account? Register </p></a>
+                <a asp-action="Registrar"> <p> Don't have an account? Register </p></a>
             </div>
         </div>
         <div asp-validation-summary="All" style="margin-top:90px;"></div>
