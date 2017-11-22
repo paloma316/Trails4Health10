@@ -11,7 +11,8 @@ namespace Trails4Healthy.Data
         public IEnumerable<Equipamento> Equipamentos => new List<Equipamento> {
 new Equipamento { NomeEquipamento= "Relogio", DescricaoEquipamento="Aparelho que funciona a pilhas e permite visualisar as horas"  ,ValorUnidade= 25 ,},
 new Equipamento { NomeEquipamento = "Ténis",DescricaoEquipamento="Acessório que permite proteger os pés na sua deslocação", ValorUnidade = 179 ,},
-new Equipamento { NomeEquipamento = "Bussóla GPS",DescricaoEquipamento="Aparelho que informa a localização", ValorUnidade = 95 ,}
+new Equipamento { Id_Equipamento=1, NomeEquipamento = "Bussóla GPS",DescricaoEquipamento="Aparelho que informa a localização", ValorUnidade = 95 ,},
+new Equipamento { NomeEquipamento = "Sapatos",DescricaoEquipamento="Aparelho que informa a localização", ValorUnidade = 95 ,}
 };
         /* 
                public IEnumerable<Empresa> Empresas => new List<Empresa>

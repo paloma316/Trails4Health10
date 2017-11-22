@@ -7,31 +7,103 @@
 <h2>Index</h2>
 
 
+
+
 <html>
+<head>
+  <style>
+      .ima {
+          margin: 5px;
+          border: 1px solid #ccc;
+      }
+
+      h1 {
+          padding-top: 30px;
+          margin-top: 30px;
+      }
+
+      div.ima:hover {
+          border: 1px black solid;
+      }
+  </style>
+
+</head>
+
 <body>
- 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome de Equipamento</th>
-                    <th>Descricao</th>
-                    <th>Preco por Unidade</th>
-                </tr>
-            </thead>
-            <tbody>
-               @foreach (var e in Model)
-               {
-                <tr>
-                    <td>@e.NomeEquipamento</td>
-                    <td>@e.DescricaoEquipamento</td>
-                    <td>@e.ValorUnidade</td>
-                </tr>
 
-               }
-                </tbody>
-</table>
-    <input type="submit" value="Alugar" />
-    <input type="submit" value="Voltar" />
+    <h1>Reserve aqui os Equipamentos</h1>
+
+    <div class="ima" style="float:left;position:relative;" >
+
+        <a asp-action="" ><img src="~/images/equipamentos/2016-Women-Men-tenis-Lace-Up-sport-Casual-Shoes-Flats-zapatillas-deportivas-mujer-tenis-masculino-esportivo.jpg" width="150" height="150" style="margin:10px;" id="id1" /></a>
+        <!--Sapatos-->
+        <div class="desc">Sapatos</div>
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="" ><img src="~/images/equipamentos/20161028100720_35760.jpg" width="150" height="150" style="margin:10px;" id="id2" /></a>
+        <!--Chapéu-->
+        <div class="desc">Chapéu</div>
+
+    </div>
+
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/80362_1472758575_g.jpg" width="150" height="150" style="margin:10px;"  id="id3"/></a>
+        <!--Mochila-->
+        <div class="desc">Mochila</div>
+
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/D_Q_NP_347815-MLB25324478859_012017-Q.jpg" width="150" height="150" style="margin:10px;" id="id4" /></a>
+        <!--Relogio-->
+        <div class="desc">Rélogio</div>
+
+    </div>
+
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/FOTO-4-jpg.jpg" width="150" height="150" style="margin:10px;" id="id5"/></a>
+        <!--Casaco-->
+        <div class="desc">Casaco</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/Prestigio-PHCPED-pedometro.jpg" width="150" height="150" style="margin:10px;"  id="id6"/></a>
+        <!--petrometro-->
+        <div class="desc">Petrométro</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/Prestigio-PHCPED-pedometro.jpg" width="150" height="150" style="margin:10px;" id="id7" /></a>
+        <!--petrometro-->
+        <div class="desc">Petrométro</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/binoculo.jpg" width="150" height="150" style="margin:10px;" id="id8" /></a>
+        <!--petrometro-->
+        <div class="desc">Petrométro</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/bussola.jpg" width="150" height="150" style="margin:10px;" id="id9"/></a>
+        <!--petrometro-->
+        <div class="desc">Petrométro</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/lanternas.jpg" width="150" height="150" style="margin:10px;"  id="id10"/></a>
+        <!--petrometro-->
+        <div class="desc">Petrométro</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action=""><img src="~/images/equipamentos/oculosSol.jpg" width="150" height="150" style="margin:10px;" id="id11"/></a>
+        <!--petrometro-->
+        <div class="desc">Petrométro</div>
+
+    </div>
+
+
 </body>
-</html>
 
+</html>
