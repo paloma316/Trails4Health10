@@ -9,12 +9,6 @@ namespace Trails4Healthy.Controllers
 {
     public class EquipamentoController : Controller
     {
-        private InterfaceEquipamento repository;
-        public EquipamentoController(InterfaceEquipamento repository)
-        {
-            this.repository = repository;
-        }
-        public ViewResult Index() => View(repository.Equipamentos);
-
+       
     }
 }
