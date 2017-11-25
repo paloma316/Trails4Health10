@@ -10,26 +10,7 @@ namespace Trails4Healthy.Models
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class Difficulty
     {
-        private readonly RequestDelegate _next;
-
-        public Difficulty(RequestDelegate next)
-        {
-            _next = next;
-        }
-
-        public Task Invoke(HttpContext httpContext)
-        {
-
-            return _next(httpContext);
-        }
-    }
-
-    // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class DifficultyExtensions
-    {
-        public static IApplicationBuilder UseMiddlewareClassTemplate(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<Difficulty>();
-        }
+        public int DifficultyID { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -10,14 +10,14 @@ namespace Trails4Healthy.Models
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class Repository
     {
-        private static List<CreateTrail> TrailCreated = new List<CreateTrail>();
+        private static List<Trail> TrailCreated = new List<Trail>();
 
-        public static void AddCreateTrail(CreateTrail trail)
+        public static void AddTrail(Trail trail)
         {
             TrailCreated.Add(trail);
         }
 
-        public static IEnumerable<CreateTrail> Trails
+        public static IEnumerable<Trail> Trails
         {
 
             get
