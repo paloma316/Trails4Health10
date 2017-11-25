@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using Trails4Healthy.Models;
 
 using Microsoft.EntityFrameworkCore;
+using Trails4Healthy.Data;
 
 namespace Trails4Healthy
 {
@@ -25,7 +27,8 @@ namespace Trails4Healthy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-  
+            services.AddDbContext<TrailsDbContext>(options => 
+            options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrails")));
 
         }
 

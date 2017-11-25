@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Trails4Healthy.Models
 {
-    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
+    
     public class Difficulty
     {
         public int DifficultyID { get; set; }
         public string Name { get; set; }
+        public ICollection<Trail> Trails { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Trails4Healthy.Models
         public int TrailID { get; set; }
         public string Name { get; set; }
         public string Distance { get; set; }
-        public string DifficultyID { get; set; }
+        public int DifficultyID { get; set; }
         public Difficulty Difficulty { get; set; }
         public bool Available { get; set; }
         
