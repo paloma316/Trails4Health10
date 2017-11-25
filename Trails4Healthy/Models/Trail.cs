@@ -10,26 +10,12 @@ namespace Trails4Healthy.Models
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class Trail
     {
-        private readonly RequestDelegate _next;
-
-        public Trail(RequestDelegate next)
-        {
-            _next = next;
-        }
-
-        public Task Invoke(HttpContext httpContext)
-        {
-
-            return _next(httpContext);
-        }
-    }
-
-    // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class TrailExtensions
-    {
-        public static IApplicationBuilder UseMiddlewareClassTemplate(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<Trail>();
-        }
+        public int TrailID { get; set; }
+        public string Name { get; set; }
+        public string Distance { get; set; }
+        public string DifficultyID { get; set; }
+        public Difficulty Difficulty { get; set; }
+        public bool Available { get; set; }
+        
     }
 }
