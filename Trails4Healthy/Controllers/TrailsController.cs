@@ -18,13 +18,13 @@ namespace Trails4Healthy.Controllers
             return View();
         }
         [HttpPost]
-        public ViewResult NewTrail(CreateTrail trail)
+        public ViewResult NewTrail(Trail trail)
         {
 
             if (ModelState.IsValid)
             {
 
-                Repository.AddCreateTrail(trail);
+                Repository.AddTrail(trail);
 
                 //todo: add guest to the list
                 return View("Thanks", trail);
