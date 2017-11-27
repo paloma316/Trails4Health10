@@ -21,7 +21,7 @@ namespace Trails4Healthy.Data
             modelBuilder.Entity<Trail>()
                 .HasOne(trail => trail.Difficulty)
                 .WithMany(difficulty => difficulty.Trails)
-                .HasForeignKey(trail => trail.DifficultyID);
+                .HasForeignKey(trail => trail.DifficultyId);
 
             
         }

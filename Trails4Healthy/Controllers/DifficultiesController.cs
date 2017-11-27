@@ -10,23 +10,22 @@ using Trails4Healthy.Models;
 
 namespace Trails4Healthy.Controllers
 {
-    public class TrailController : Controller
+    public class DifficultiesController : Controller
     {
         private readonly TrailsDbContext _context;
 
-        public TrailController(TrailsDbContext context)
+        public DifficultiesController(TrailsDbContext context)
         {
             _context = context;
         }
 
-        // GET: Trail
+        // GET: Difficulties
         public async Task<IActionResult> Index()
         {
-            var trailsDbContext = _context.Trails.Include(t => t.Difficulty);
-            return View(await trailsDbContext.ToListAsync());
+            return View(await _context.Difficulties.ToListAsync());
         }
 
-        // GET: Trail/Details/5
+        // GET: Difficulties/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +33,39 @@ namespace Trails4Healthy.Controllers
                 return NotFound();
             }
 
-            var trail = await _context.Trails
-                .Include(t => t.Difficulty)
-                .SingleOrDefaultAsync(m => m.TrailID == id);
-            if (trail == null)
+            var difficulty = await _context.Difficulties
+                .SingleOrDefaultAsync(m => m.DifficultyId == id);
+            if (difficulty == null)
             {
                 return NotFound();
             }
 
-            return View(trail);
+            return View(difficulty);
         }
 
-        // GET: Trail/Create
+        // GET: Difficulties/Create
         public IActionResult Create()
         {
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId");
             return View();
         }
 
-        // POST: Trail/Create
+        // POST: Difficulties/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TrailID,Name,Distance,DifficultyId,Available")] Trail trail)
+        public async Task<IActionResult> Create([Bind("DifficultyId,Name")] Difficulty difficulty)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(trail);
+                _context.Add(difficulty);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId", trail.DifficultyId);
-            return View(trail);
+            return View(difficulty);
         }
 
-        // GET: Trail/Edit/5
+        // GET: Difficulties/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +73,22 @@ namespace Trails4Healthy.Controllers
                 return NotFound();
             }
 
-            var trail = await _context.Trails.SingleOrDefaultAsync(m => m.TrailID == id);
-            if (trail == null)
+            var difficulty = await _context.Difficulties.SingleOrDefaultAsync(m => m.DifficultyId == id);
+            if (difficulty == null)
             {
                 return NotFound();
             }
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId", trail.DifficultyId);
-            return View(trail);
+            return View(difficulty);
         }
 
-        // POST: Trail/Edit/5
+        // POST: Difficulties/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TrailID,Name,Distance,DifficultyId,Available")] Trail trail)
+        public async Task<IActionResult> Edit(int id, [Bind("DifficultyId,Name")] Difficulty difficulty)
         {
-            if (id != trail.TrailID)
+            if (id != difficulty.DifficultyId)
             {
                 return NotFound();
             }
@@ -102,12 +97,12 @@ namespace Trails4Healthy.Controllers
             {
                 try
                 {
-                    _context.Update(trail);
+                    _context.Update(difficulty);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TrailExists(trail.TrailID))
+                    if (!DifficultyExists(difficulty.DifficultyId))
                     {
                         return NotFound();
                     }
@@ -118,11 +113,10 @@ namespace Trails4Healthy.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId", trail.DifficultyId);
-            return View(trail);
+            return View(difficulty);
         }
 
-        // GET: Trail/Delete/5
+        // GET: Difficulties/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,31 +124,30 @@ namespace Trails4Healthy.Controllers
                 return NotFound();
             }
 
-            var trail = await _context.Trails
-                .Include(t => t.Difficulty)
-                .SingleOrDefaultAsync(m => m.TrailID == id);
-            if (trail == null)
+            var difficulty = await _context.Difficulties
+                .SingleOrDefaultAsync(m => m.DifficultyId == id);
+            if (difficulty == null)
             {
                 return NotFound();
             }
 
-            return View(trail);
+            return View(difficulty);
         }
 
-        // POST: Trail/Delete/5
+        // POST: Difficulties/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var trail = await _context.Trails.SingleOrDefaultAsync(m => m.TrailID == id);
-            _context.Trails.Remove(trail);
+            var difficulty = await _context.Difficulties.SingleOrDefaultAsync(m => m.DifficultyId == id);
+            _context.Difficulties.Remove(difficulty);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TrailExists(int id)
+        private bool DifficultyExists(int id)
         {
-            return _context.Trails.Any(e => e.TrailID == id);
+            return _context.Difficulties.Any(e => e.DifficultyId == id);
         }
     }
 }
