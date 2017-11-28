@@ -13,6 +13,7 @@ namespace Trails4Healthy.Data
 
         public DbSet<Trail> Trails { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
+        public DbSet<ReservaEquipamentos> Reservas;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,5 +26,7 @@ namespace Trails4Healthy.Data
 
             
         }
+
+        public DbSet<Trails4Healthy.Models.ReservaEquipamentos> ReservaEquipamentos { get; set; }
     }
 }

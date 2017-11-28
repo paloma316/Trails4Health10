@@ -19,5 +19,6 @@ namespace Trails4Healthy.Models
 
 
         public IEnumerable<Trail> Trails => dbContext.Trails;
+
     }
 }
