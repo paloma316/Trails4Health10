@@ -27,6 +27,7 @@ namespace Trails4Healthy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<ITrailsRepository, EFTrailsRepository>();
             services.AddDbContext<TrailsDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrails")));
 
@@ -56,6 +57,8 @@ namespace Trails4Healthy
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.EnsurePopulated(app.ApplicationServices);
         }
     }
 }

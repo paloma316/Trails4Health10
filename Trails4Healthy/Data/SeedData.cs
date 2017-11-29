@@ -20,14 +20,14 @@ namespace Trails4Healthy.Data
 
         private static void EnsureTrailsPopulated(TrailsDbContext dbContext) { 
             dbContext.Difficulties.AddRange(
-                new Difficulty {DifficultyId=1, Name = "Facil" },
-                new Difficulty { DifficultyId = 2, Name = "Media" },
-                new Difficulty { DifficultyId = 3, Name = "Dificil" }
+                new Difficulty { Name = "Facil" },
+                new Difficulty { Name = "Media" },
+                new Difficulty { Name = "Dificil" }
 
                 );
 
             dbContext.Trails.AddRange(
-                 new Trail { Name = "Trail 1", Available = true, DifficultyId = 1, Distance = "275 " },
+                 new Trail { Name = "Trail 1", Available = true, DifficultyId = 4, Distance = "275 " },
                  new Trail { Name = "Trail 2", Available = false, DifficultyId = 2, Distance = "1000 " }
 
 
