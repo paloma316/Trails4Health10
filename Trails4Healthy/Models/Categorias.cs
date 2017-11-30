@@ -9,7 +9,7 @@ namespace Trails4Healthy.Models
     {
         public int IDCategoria { get; set; }// chave primaria
         public string nomeCategoria { get; set; }//
-        public string estaca { get; set; }// melhor estação estação do ano em que a categoria se aplica 
+        public string estacao { get; set; }// melhor estação estação do ano em que a categoria se aplica 
         public string descricao { get; set; }//pequeno texto com ou sem detalhes sobre a descrição da categorio
     }
 }
