@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Trails4Healthy.Models;
 
 namespace Trails4Healthy.Data
-{
+{/*
     public class SeedData
     {
         public static void EnsurePopulated(IServiceProvider serviceProvider)
@@ -34,4 +34,6 @@ namespace Trails4Healthy.Data
             );
         }
     }
+    */
 }
+

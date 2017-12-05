@@ -7,8 +7,8 @@ namespace Trails4Healthy.Models
 {
     public class Categorias
     {
-        public int IDCategoria { get; set; }// chave primaria 
+        public int CategoriaId { get; set; }// chave primaria 
         public string nomeCategoria { get; set; }// 
-        public int IDCategoria { get; set; }//
+  
     }
 }

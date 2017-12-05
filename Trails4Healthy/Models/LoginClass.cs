@@ -30,6 +30,6 @@ namespace Trails4Healthy.Models
         public string Numero_Telefone { get; set; }
 
         public string Morada { get; set; }
-        public string Nif { get; set; }
+        //public string Nif { get; set; }
     }
 }

@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Trails4Healthy.Models;
 
-using Microsoft.EntityFrameworkCore;
 using Trails4Healthy.Data;
 
 namespace Trails4Healthy
@@ -58,7 +57,7 @@ namespace Trails4Healthy
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            SeedData.EnsurePopulated(app.ApplicationServices);
+            //SeedData.EnsurePopulated(app.ApplicationServices);
         }
     }
 }

@@ -11,7 +11,7 @@ using Trails4Healthy.Data;
 namespace Trails4Healthy.Migrations
 {
     [DbContext(typeof(TrailsDbContext))]
-    [Migration("20171129092536_Initial")]
+    [Migration("20171205234054_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

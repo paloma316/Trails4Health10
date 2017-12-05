@@ -7,7 +7,7 @@ namespace Trails4Healthy.Models
 {
     public class Equipamento
     {
-        public int Id_Equipamento { get; set; }
+        public int EquipamentoId { get; set; }
         public string DescricaoEquipamento { get; set; }
         public decimal ValorUnidade { get; set; }
         public string NomeEquipamento { get; set; }
