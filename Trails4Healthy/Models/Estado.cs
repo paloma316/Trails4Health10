@@ -12,7 +12,7 @@ namespace Trails4Healthy.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EstadoId { get; set; }
-        public string Nome { get; set; }
+        public string NomeEstado { get; set; }
         public string Descricao { get; set; }
     }
 }
