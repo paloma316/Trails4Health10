@@ -12,5 +12,7 @@ namespace Trails4Healthy.Models
         public int EmpresaId { get; set; }
         public string Contactos { get; set; }
         public string NomeEmpresa { get; set; }
+
+        public ICollection<Equipamento> Equipqmento { get; set; }
     }
 }

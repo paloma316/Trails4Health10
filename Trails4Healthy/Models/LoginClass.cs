@@ -31,5 +31,8 @@ namespace Trails4Healthy.Models
 
         public string Morada { get; set; }
         //public string Nif { get; set; }
+
+
+        public ICollection<ReservaEquipamentos> Reservas { get; set; }
     }
 }

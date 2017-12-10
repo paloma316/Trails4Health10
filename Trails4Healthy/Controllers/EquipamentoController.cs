@@ -9,6 +9,11 @@ namespace Trails4Healthy.Controllers
 {
     public class EquipamentoController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
        
     }
 }

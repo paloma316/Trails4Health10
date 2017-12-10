@@ -14,5 +14,7 @@ namespace Trails4Healthy.Models
         public int EstadoId { get; set; }
         public string NomeEstado { get; set; }
         public string Descricao { get; set; }
+
+        public ICollection<Estado_Reserva> EstadoReservas { get; set; }
     }
 }

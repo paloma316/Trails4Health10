@@ -16,6 +16,10 @@ namespace Trails4Healthy.Models
         public int DifficultyId { get; set; }
         public Difficulty Difficulty { get; set; }
         public bool Available { get; set; }
+
+
+        //
+        public ICollection<ReservaEquipamentos> reservaEquipamentos1 { get; set; }
         
     }
 }

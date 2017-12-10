@@ -24,6 +24,14 @@ namespace Trails4Healthy.Models
         public DateTime Inicio_Reserva{ get; set; }
 
 
+      public ICollection<Estado_Reserva>Estado_Reserva { get; set; }
+        public ICollection<Linha_Equipamento_Reserva> Linha_Equipamento_Reserva { get; set; }
+
+        public Trail Trails { get; set; }
+        public LoginClass Turistas { get; set; }
+        
+
+
 
        
 
