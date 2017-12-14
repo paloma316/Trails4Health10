@@ -7,11 +7,11 @@ namespace Trails4Healthy.Models
 {
     public class Local
     {
-        public int IDLocalização { get; set; }// chave primaria
-        public string nomeLocalidade { get; set; }//
-        public string concelho{ get; set; }//
-        public string distrito{ get; set; }//
-        public int coordenadas { get; set; }// coordenada de gps do local
-        public string descricao { get; set; }// pequeno texto com informaçoes sobre o local
+        public int LocalizacaoID { get; set; }// chave primaria
+        public string NomeLocalidade { get; set; }//
+        public string Concelho{ get; set; }//
+        public string Distrito{ get; set; }//
+        public string Coordenadas { get; set; }// coordenada de gps do local
+        public string Descricao { get; set; }// pequeno texto com informaçoes sobre o local
     }
 }
