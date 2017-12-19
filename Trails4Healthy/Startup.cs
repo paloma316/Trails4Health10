@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Trails4Healthy.Models;
 
 using Trails4Healthy.Data;
+using Microsoft.Extensions.Logging;
 
 namespace Trails4Healthy
 {
@@ -30,14 +31,18 @@ namespace Trails4Healthy
             services.AddDbContext<TrailsDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrails")));
 
+            var serviceProvider = services.BuildServiceProvider();
+            SeedData.EnsurePopulated(serviceProvider);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
 
-           
-          
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -57,7 +62,7 @@ namespace Trails4Healthy
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-          SeedData.EnsurePopulated(app.ApplicationServices);
+         //SeedData.EnsurePopulated(app.ApplicationServices);
         }
     }
 }

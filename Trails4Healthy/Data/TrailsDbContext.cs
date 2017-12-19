@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +14,32 @@ namespace Trails4Healthy.Data
 
         public DbSet<Trail> Trails { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
+       
 
         //Reserva de Equipamentos
+        public DbSet<LoginClass> Turistas { get; set; }
+
         public DbSet<ReservaEquipamentos> ReservaEquipamentos { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Estado_Reserva> EstadoReserva { get; set; }
-        public DbSet<LoginClass> Turistas { get; set; }
+       
         public DbSet<Linha_Equipamento_Reserva> Linha_Equipamento { get; set; }
         public DbSet<Equipamento> Equipamento { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
+
 
             //Chaves estrangeiras de Trails
-            modelBuilder.Entity<Trail>()
+                 modelBuilder.Entity<Trail>()
                 .HasOne(trail => trail.Difficulty)
                 .WithMany(difficulty => difficulty.Trails)
                 .HasForeignKey(trail => trail.DifficultyId);
+
+
+
 
             //chaves estrangeiras de Estado Reserva
             modelBuilder.Entity<Estado_Reserva>().HasKey(v=> new { v.ReservaId, v.EstadoId });
@@ -41,42 +50,43 @@ namespace Trails4Healthy.Data
             modelBuilder.Entity<Estado_Reserva>()
                 .HasOne(v => v.Estado)
                 .WithMany(v=> v.EstadoReservas)
-                .HasForeignKey(bc => bc.EstadoId);
+                .HasForeignKey(v => v.EstadoId);
 
             //Reserva Equipamento
             modelBuilder.Entity<ReservaEquipamentos>()
              .HasOne(v => v.Trails)
              .WithMany(v => v.reservaEquipamentos1)
-             .HasForeignKey(bc => bc.TrilhoId);
+             .HasForeignKey(v => v.TrilhoId);
 
             modelBuilder.Entity<ReservaEquipamentos>()
            .HasOne(v => v.Turistas)
            .WithMany(v => v.Reservas)
-           .HasForeignKey(bc => bc.TuristaId);
+           .HasForeignKey(v => v.TuristaId);
 
 
             //Linha Equipamento reserva
-            /**/
+            /*
          modelBuilder.Entity<Linha_Equipamento_Reserva>()
         .HasOne(v => v.Reservas)
         .WithMany(v => v.Linha_Equipamento_Reserva)
         .HasForeignKey(bc => bc.ReservaId);
 
-            /**/
+            
             modelBuilder.Entity<Linha_Equipamento_Reserva>()
       .HasOne(v => v.Equipamentos)
       .WithMany(v => v.Linhas)
       .HasForeignKey(bc => bc.EquipamentoId);
 
-
+           
             //Equipamento
 
-            
+
 
             modelBuilder.Entity<Equipamento>()
      .HasOne(v => v.Empresas)
      .WithMany(v => v.Equipqmento)
      .HasForeignKey(bc => bc.EmpresaId);
+      */
 
 
 
