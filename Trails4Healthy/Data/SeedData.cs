@@ -32,35 +32,37 @@ namespace Trails4Healthy.Data
                 );
                 dbContext.SaveChanges();
             }
-            /*
+            
 
-            if (!dbContext.Trails.Any())
-            {
-                   var dificuldadeFacil = dbContext.Difficulties.SingleOrDefault(d => d.Name== "Facil");
-                   var dificuldadeMedia = dbContext.Difficulties.SingleOrDefault(d => d.Name == "Dificil");
-
-                   dbContext.Trails.AddRange(
-                        new Trail { Name = "Trail 1", Available = true, Difficulty = dificuldadeFacil, Distance = "275 " },
-                        new Trail { Name = "Trail 2", Available = false, Difficulty=dificuldadeMedia, Distance = "1000 " }
-
-
-                   );
-                dbContext.SaveChanges();
-            }
-
+           
 
             ////Turista Dados
-            if (!dbContext.Trails.Any())
+            if (!dbContext.Turistas.Any())
             {
                 dbContext.Turistas.AddRange(
-                new LoginClass { Nome = "Afonso Costa", Morada = "Guarda", Numero_Telefone = "930886504", username = "afonsino", pass = "banana" },
-               new LoginClass { Nome = "Marta", Morada = "Aveiro", Numero_Telefone = "920819221", username = "martinha", pass = "gostoPeixe1" },
-                new LoginClass { Nome = "Zeca Ernesto", Morada = "Viseu", Numero_Telefone = "927349343", username = "ernestinho", pass = "Ernestinho2" }
+                new LoginClass { Nome = "Afonso Costa", Morada = "Guarda", Numero_Telefone = "930886504", username = "afonsino", Pass = "banana" },
+               new LoginClass { Nome = "Marta", Morada = "Aveiro", Numero_Telefone = "920819221", username = "martinha", Pass = "gostoPeixe1" },
+                new LoginClass { Nome = "Zeca Ernesto", Morada = "Viseu", Numero_Telefone = "927349343", username = "ernestinho", Pass = "Ernestinho2" }
                );
                 dbContext.SaveChanges();
             }
-            
 
+            //Trilho
+            if (!dbContext.Trails.Any())
+            {
+
+                var dificuldadeFacil = dbContext.Difficulties.SingleOrDefault(d => d.Name == "Facil");
+                var dificuldadeMedia = dbContext.Difficulties.SingleOrDefault(d => d.Name == "Dificil");
+
+                dbContext.Trails.AddRange(
+                     new Trail { Name = "Trail 1", Available = true, Difficulty = dificuldadeFacil, Distance = "275" },
+                     new Trail { Name = "Trail 2", Available = false, Difficulty = dificuldadeMedia, Distance = "1000" }
+                     
+
+                );
+                dbContext.SaveChanges();
+            }
+            /*
        //Reserva Equipamentos
 
        //Empresa

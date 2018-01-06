@@ -32,6 +32,8 @@ namespace Trails4Healthy
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrails")));
 
             var serviceProvider = services.BuildServiceProvider();
+
+            //
             SeedData.EnsurePopulated(serviceProvider);
 
         }

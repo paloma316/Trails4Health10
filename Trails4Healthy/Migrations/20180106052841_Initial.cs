@@ -57,10 +57,10 @@ namespace Trails4Healthy.Migrations
                     TuristaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Morada = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(maxLength: 50, nullable: true),
+                    Nome = table.Column<string>(nullable: true),
                     Numero_Telefone = table.Column<string>(nullable: true),
-                    pass = table.Column<string>(nullable: false),
-                    username = table.Column<string>(nullable: false)
+                    Pass = table.Column<string>(nullable: true),
+                    username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

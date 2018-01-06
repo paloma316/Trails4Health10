@@ -119,16 +119,13 @@ namespace Trails4Healthy.Migrations
 
                     b.Property<string>("Morada");
 
-                    b.Property<string>("Nome")
-                        .HasMaxLength(50);
+                    b.Property<string>("Nome");
 
                     b.Property<string>("Numero_Telefone");
 
-                    b.Property<string>("pass")
-                        .IsRequired();
+                    b.Property<string>("Pass");
 
-                    b.Property<string>("username")
-                        .IsRequired();
+                    b.Property<string>("username");
 
                     b.HasKey("TuristaId");
 

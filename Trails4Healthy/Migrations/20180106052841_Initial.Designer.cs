@@ -11,7 +11,7 @@ using Trails4Healthy.Data;
 namespace Trails4Healthy.Migrations
 {
     [DbContext(typeof(TrailsDbContext))]
-    [Migration("20171215124625_Initial")]
+    [Migration("20180106052841_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -120,16 +120,13 @@ namespace Trails4Healthy.Migrations
 
                     b.Property<string>("Morada");
 
-                    b.Property<string>("Nome")
-                        .HasMaxLength(50);
+                    b.Property<string>("Nome");
 
                     b.Property<string>("Numero_Telefone");
 
-                    b.Property<string>("pass")
-                        .IsRequired();
+                    b.Property<string>("Pass");
 
-                    b.Property<string>("username")
-                        .IsRequired();
+                    b.Property<string>("username");
 
                     b.HasKey("TuristaId");
 
