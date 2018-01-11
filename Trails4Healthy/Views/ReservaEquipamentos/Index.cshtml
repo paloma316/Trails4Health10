@@ -40,12 +40,13 @@
                 @Html.DisplayFor(modelItem => item.Trails.TrailID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Turistas.pass)
+                @Html.DisplayFor(modelItem => item.Turistas.TuristaId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ReservaId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ReservaId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ReservaId">Delete</a>
+            
             </td>
         </tr>
 }

@@ -21,6 +21,8 @@ namespace Trails4Healthy.Models
         public IEnumerable<Trail> Trails => dbContext.Trails;
         public IEnumerable<Difficulty> Dificulties => dbContext.Difficulties;
         public IEnumerable<LoginClass> Turistas => dbContext.Turistas;
+        public IEnumerable<Equipamento> Equipamentos => dbContext.Equipamento;
+        public IEnumerable<Linha_Equipamento_Reserva> Linha_Equipamentos=>dbContext.Linha_Equipamento;
 
     }
 }

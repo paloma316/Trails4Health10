@@ -1,0 +1,53 @@
+﻿@model Trails4Healthy.Models.Equipamento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Equipamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EquipamentoId" />
+            <div class="form-group">
+                <label asp-for="NomeEquipamento" class="control-label"></label>
+                <input asp-for="NomeEquipamento" class="form-control" />
+                <span asp-validation-for="NomeEquipamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeEquip" class="control-label"></label>
+                <input asp-for="QuantidadeEquip" class="form-control" />
+                <span asp-validation-for="QuantidadeEquip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoEquipamento" class="control-label"></label>
+                <input asp-for="DescricaoEquipamento" class="form-control" />
+                <span asp-validation-for="DescricaoEquipamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorUnidade" class="control-label"></label>
+                <input asp-for="ValorUnidade" class="form-control" />
+                <span asp-validation-for="ValorUnidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Disponível" /> @Html.DisplayNameFor(model => model.Disponível)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

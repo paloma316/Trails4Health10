@@ -63,9 +63,13 @@ namespace Trails4Healthy.Data
            .WithMany(v => v.Reservas)
            .HasForeignKey(v => v.TuristaId);
 
+            //LinhaEquipamento:Livro
+            //Equipamento:Author
+            //Reservas:Author
+
 
             //Linha Equipamento reserva
-            /*
+           
          modelBuilder.Entity<Linha_Equipamento_Reserva>()
         .HasOne(v => v.Reservas)
         .WithMany(v => v.Linha_Equipamento_Reserva)
@@ -77,16 +81,16 @@ namespace Trails4Healthy.Data
       .WithMany(v => v.Linhas)
       .HasForeignKey(bc => bc.EquipamentoId);
 
-           
+
             //Equipamento
 
-
+            /*
 
             modelBuilder.Entity<Equipamento>()
      .HasOne(v => v.Empresas)
      .WithMany(v => v.Equipqmento)
      .HasForeignKey(bc => bc.EmpresaId);
-      */
+             */
 
 
 

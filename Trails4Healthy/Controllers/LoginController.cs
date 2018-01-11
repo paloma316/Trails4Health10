@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Trails4Healthy.Models;
+using Trails4Healthy.Data;
+
 
 namespace Trails4Healthy.Controllers
 {
@@ -14,9 +16,12 @@ namespace Trails4Healthy.Controllers
         {
               if (ModelState.IsValid)
               {
+                
+                
                
                   return View("Sucesso",modelo);
-              }
+               
+            }
             else
             {
                 return View();

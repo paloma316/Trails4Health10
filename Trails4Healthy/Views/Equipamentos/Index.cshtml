@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Trails4Healthy.Models.Equipamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeEquipamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuantidadeEquip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DescricaoEquipamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ValorUnidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Disponível)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeEquipamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeEquip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoEquipamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorUnidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponível)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EquipamentoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EquipamentoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EquipamentoId">Delete</a>
+                @if (item.Disponível == true)
+                {
+            <a asp-action="Reservar" asp-controller="Equipamentos" asp-route-id="@item.EquipamentoId">Reservar</a>
+
+}
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model Trails4Healthy.Models.Equipamento
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Equipamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeEquipamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeEquipamento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantidadeEquip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QuantidadeEquip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoEquipamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoEquipamento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorUnidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ValorUnidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Disponível)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Disponível)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EquipamentoId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

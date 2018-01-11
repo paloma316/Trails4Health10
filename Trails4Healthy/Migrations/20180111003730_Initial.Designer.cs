@@ -11,7 +11,7 @@ using Trails4Healthy.Data;
 namespace Trails4Healthy.Migrations
 {
     [DbContext(typeof(TrailsDbContext))]
-    [Migration("20180106052841_Initial")]
+    [Migration("20180111003730_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,15 +54,19 @@ namespace Trails4Healthy.Migrations
 
                     b.Property<string>("DescricaoEquipamento");
 
-                    b.Property<int>("EmpresaId");
+                    b.Property<bool>("Disponível");
+
+                    b.Property<int?>("EmpresasEmpresaId");
 
                     b.Property<string>("NomeEquipamento");
+
+                    b.Property<int>("QuantidadeEquip");
 
                     b.Property<decimal>("ValorUnidade");
 
                     b.HasKey("EquipamentoId");
 
-                    b.HasIndex("EmpresaId");
+                    b.HasIndex("EmpresasEmpresaId");
 
                     b.ToTable("Equipamento");
                 });
@@ -106,7 +110,16 @@ namespace Trails4Healthy.Migrations
 
                     b.Property<int>("EquipamentoId");
 
+                    b.Property<int>("LinhaEquipamentoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<decimal>("ValorParcial");
+
                     b.HasKey("ReservaId", "EquipamentoId");
+
+                    b.HasAlternateKey("LinhaEquipamentoId");
 
                     b.HasIndex("EquipamentoId");
 
@@ -179,8 +192,7 @@ namespace Trails4Healthy.Migrations
                 {
                     b.HasOne("Trails4Healthy.Models.Empresa", "Empresas")
                         .WithMany("Equipqmento")
-                        .HasForeignKey("EmpresaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EmpresasEmpresaId");
                 });
 
             modelBuilder.Entity("Trails4Healthy.Models.Estado_Reserva", b =>

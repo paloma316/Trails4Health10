@@ -96,19 +96,21 @@ namespace Trails4Healthy.Migrations
                     EquipamentoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DescricaoEquipamento = table.Column<string>(nullable: true),
-                    EmpresaId = table.Column<int>(nullable: false),
+                    Disponível = table.Column<bool>(nullable: false),
+                    EmpresasEmpresaId = table.Column<int>(nullable: true),
                     NomeEquipamento = table.Column<string>(nullable: true),
+                    QuantidadeEquip = table.Column<int>(nullable: false),
                     ValorUnidade = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Equipamento", x => x.EquipamentoId);
                     table.ForeignKey(
-                        name: "FK_Equipamento_Empresas_EmpresaId",
-                        column: x => x.EmpresaId,
+                        name: "FK_Equipamento_Empresas_EmpresasEmpresaId",
+                        column: x => x.EmpresasEmpresaId,
                         principalTable: "Empresas",
                         principalColumn: "EmpresaId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -171,11 +173,16 @@ namespace Trails4Healthy.Migrations
                 columns: table => new
                 {
                     ReservaId = table.Column<int>(nullable: false),
-                    EquipamentoId = table.Column<int>(nullable: false)
+                    EquipamentoId = table.Column<int>(nullable: false),
+                    LinhaEquipamentoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Quantidade = table.Column<int>(nullable: false),
+                    ValorParcial = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Linha_Equipamento", x => new { x.ReservaId, x.EquipamentoId });
+                    table.UniqueConstraint("AK_Linha_Equipamento_LinhaEquipamentoId", x => x.LinhaEquipamentoId);
                     table.ForeignKey(
                         name: "FK_Linha_Equipamento_Equipamento_EquipamentoId",
                         column: x => x.EquipamentoId,
@@ -191,9 +198,9 @@ namespace Trails4Healthy.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Equipamento_EmpresaId",
+                name: "IX_Equipamento_EmpresasEmpresaId",
                 table: "Equipamento",
-                column: "EmpresaId");
+                column: "EmpresasEmpresaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EstadoReserva_EstadoId",

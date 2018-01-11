@@ -46,11 +46,14 @@ namespace Trails4Healthy.Controllers
             return View(reservaEquipamentos);
         }
 
+      
+        
+
         // GET: ReservaEquipamentos/Create
         public IActionResult Create()
         {
-            ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "TrailID");
-            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "pass");
+            ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "Name");
+            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "Nome");
             return View();
         }
 
@@ -68,7 +71,7 @@ namespace Trails4Healthy.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "TrailID", reservaEquipamentos.TrilhoId);
-            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "pass", reservaEquipamentos.TuristaId);
+            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
             return View(reservaEquipamentos);
         }
 
@@ -86,7 +89,7 @@ namespace Trails4Healthy.Controllers
                 return NotFound();
             }
             ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "TrailID", reservaEquipamentos.TrilhoId);
-            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "pass", reservaEquipamentos.TuristaId);
+            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
             return View(reservaEquipamentos);
         }
 
@@ -123,7 +126,7 @@ namespace Trails4Healthy.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "TrailID", reservaEquipamentos.TrilhoId);
-            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "pass", reservaEquipamentos.TuristaId);
+            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
             return View(reservaEquipamentos);
         }
 

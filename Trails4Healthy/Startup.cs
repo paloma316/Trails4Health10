@@ -34,7 +34,7 @@ namespace Trails4Healthy
             var serviceProvider = services.BuildServiceProvider();
 
             //
-            SeedData.EnsurePopulated(serviceProvider);
+           SeedData.EnsurePopulated(serviceProvider);
 
         }
 
