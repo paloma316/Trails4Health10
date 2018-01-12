@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Trails4Healthy.Data;
 using Microsoft.EntityFrameworkCore;
 using Trails4Healthy.Models;
+using Trails4Healthy.Services;
 
-using Trails4Healthy.Data;
+
 using Microsoft.Extensions.Logging;
 
 namespace Trails4Healthy
@@ -26,7 +30,9 @@ namespace Trails4Healthy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddDbContext<TrailsUserDBContex>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrailsUsers")));
+
             services.AddTransient<ITrailsRepository, EFTrailsRepository>();
             services.AddDbContext<TrailsDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrails")));
@@ -35,6 +41,7 @@ namespace Trails4Healthy
 
             //
            SeedData.EnsurePopulated(serviceProvider);
+services.AddMvc();
 
         }
 
