@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Trails4Healthy.Data;
-using Microsoft.EntityFrameworkCore;
+
 using Trails4Healthy.Models;
 using Trails4Healthy.Services;
 
@@ -38,7 +38,12 @@ namespace Trails4Healthy
             options.UseSqlServer(Configuration.GetConnectionString("ConnectionStringTrails")));
 
             var serviceProvider = services.BuildServiceProvider();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<TrailsUserDBContex>()
+                .AddDefaultTokenProviders();
 
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
             //
            SeedData.EnsurePopulated(serviceProvider);
 services.AddMvc();
@@ -46,16 +51,13 @@ services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -63,6 +65,8 @@ services.AddMvc();
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
