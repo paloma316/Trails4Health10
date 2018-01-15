@@ -167,12 +167,27 @@ namespace Trails4Healthy.Controllers
                 .SingleOrDefaultAsync(m => m.TuristaId == id);*/
             // var turista = await _context.Turistas.SingleOrDefaultAsync(t => t.username == nomeUser);
             //  var Reserva1Turista =await _context.ReservaEquipamentos.SingleOrDefaultAsync(t => t.TuristaId == id);
-            var Reserva1Turista = await _context.ReservaEquipamentos.Where(r => r.TuristaId == id).ToListAsync();
+            // var Reserva1Turista = await _context.ReservaEquipamentos.Where(r => r.TuristaId == id).ToListAsync();
+            var Reserva1Turista = await _context.ReservaEquipamentos.Include(trilho=>trilho.Trails).Where(r => r.TuristaId == id).ToListAsync();
 
+            //  var trailsDbContext = _context.ReservaEquipamentos.Include(r => r.Trails).Include(r => r.Turistas);
 
             // return View(await trailsDbContext.ToListAsync());
 
             return View(Reserva1Turista);
+        }
+
+
+        //Linha Reserva Equipamento
+        // GET: Linha_Equipamento_Reserva
+        public async Task<IActionResult> CriarLinhaEquipamento(int? id)
+        {
+
+            //  var trailsDbContext = _context.Linha_Equipamento.Include(l => l.Equipamentos).Include(l => l.Reservas);
+
+            //var Reserva1Turista = await _context.ReservaEquipamentos.Where(r => r.TuristaId == id).ToListAsync();
+            var trailsDbContext = _context.Linha_Equipamento.Include(l => l.Equipamentos).Where(r=>r.ReservaId ==id);
+            return View(await trailsDbContext.ToListAsync());
         }
 
     }

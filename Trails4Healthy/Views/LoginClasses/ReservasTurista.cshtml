@@ -46,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Turistas.TuristaId)
                 </td>
                 <td>
-                   
+                    <a asp-action="CriarLinhaEquipamento" asp-route-id="@item.ReservaId" asp-controller="LoginClasses">Reservar Equipamento</a> |
 
                 </td>
             </tr>
