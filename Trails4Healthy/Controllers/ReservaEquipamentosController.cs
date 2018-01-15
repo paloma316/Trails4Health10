@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,19 +15,32 @@ namespace Trails4Healthy.Controllers
     {
         private readonly TrailsDbContext _context;
 
+
+
         public ReservaEquipamentosController(TrailsDbContext context)
         {
             _context = context;
+
         }
+        //---------------
+
+
+        /* public ReservaEquipamentosController(TrailsDbContext dbContext)
+         {
+             dbContext = _contextUser;
+         }*/
 
         // GET: ReservaEquipamentos
+      
         public async Task<IActionResult> Index()
         {
+
             var trailsDbContext = _context.ReservaEquipamentos.Include(r => r.Trails).Include(r => r.Turistas);
             return View(await trailsDbContext.ToListAsync());
         }
 
         // GET: ReservaEquipamentos/Details/5
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,32 +60,92 @@ namespace Trails4Healthy.Controllers
             return View(reservaEquipamentos);
         }
 
-      
-        
+
+
 
         // GET: ReservaEquipamentos/Create
+        /*
+        [Authorize(Roles = "Customer")]
+        public IActionResult Create(int? id)
+        {
+            //ir Buscar id do turista
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var reservaEquipamentos = await _context.ReservaEquipamentos.SingleOrDefaultAsync(m => m.ReservaId == id);
+            ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "Name");
+            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "Nome");
+            return base.View();
+        }
+        /*
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> Create()
+        {
+            //codigo para ir buscar o utilizador na base de dado TrailsUser
+            //User.Identity.Name
+
+            //SingleorDefault:retorna toda a informacao
+           var nomeUser = User.Identity.Name;
+           var turista= await _context.Turistas.SingleOrDefaultAsync(t => t.username == nomeUser);
+
+        
+          //  if(idTurista=User.Identity.Name)
+           
+   // .SingleOrDefaultAsync(m => m.ReservaId == id);
+   if (idTurista == null)
+   {
+       return NotFound();
+   }
+ //  ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "Id do Turista que fez o Login");
+
+   ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "Name");
+  // ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "Nome");
+   return base.View();
+}*/
+
+
+        //------------------------------
+        // GET: ReservaEquipamentos/Create
+        [Authorize(Roles = "Customer")]
         public IActionResult Create()
         {
             ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "Name");
-            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "Nome");
+
             return View();
         }
+
+
+        //--------------------------------
 
         // POST: ReservaEquipamentos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+       
         public async Task<IActionResult> Create([Bind("ReservaId,TuristaId,TrilhoId,Data_Reserva_Efetuada,Inicio_Reserva")] ReservaEquipamentos reservaEquipamentos)
         {
             if (ModelState.IsValid)
             {
+                var nomeUser = User.Identity.Name;
+                var turista = await _context.Turistas.SingleOrDefaultAsync(t => t.username == nomeUser);
+                reservaEquipamentos.Turistas = turista;
+
+
                 _context.Add(reservaEquipamentos);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // return RedirectToAction(nameof(View));
+                return View();
+            
             }
             ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "TrailID", reservaEquipamentos.TrilhoId);
-            ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
+            //  ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
+           
+            
+
             return View(reservaEquipamentos);
         }
 
@@ -92,6 +166,11 @@ namespace Trails4Healthy.Controllers
             ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
             return View(reservaEquipamentos);
         }
+        //Index
+        //------------------
+
+
+        //----------------
 
         // POST: ReservaEquipamentos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -123,7 +202,7 @@ namespace Trails4Healthy.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(View));
             }
             ViewData["TrilhoId"] = new SelectList(_context.Trails, "TrailID", "TrailID", reservaEquipamentos.TrilhoId);
             ViewData["TuristaId"] = new SelectList(_context.Turistas, "TuristaId", "TuristaId", reservaEquipamentos.TuristaId);
@@ -150,6 +229,9 @@ namespace Trails4Healthy.Controllers
             return View(reservaEquipamentos);
         }
 
+        //acao para o turista  visualizar as suas reservas 
+
+
         // POST: ReservaEquipamentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -158,7 +240,7 @@ namespace Trails4Healthy.Controllers
             var reservaEquipamentos = await _context.ReservaEquipamentos.SingleOrDefaultAsync(m => m.ReservaId == id);
             _context.ReservaEquipamentos.Remove(reservaEquipamentos);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(View));
         }
 
         private bool ReservaEquipamentosExists(int id)

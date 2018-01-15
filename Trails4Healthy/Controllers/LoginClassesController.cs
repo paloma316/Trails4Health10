@@ -149,5 +149,31 @@ namespace Trails4Healthy.Controllers
         {
             return _context.Turistas.Any(e => e.TuristaId == id);
         }
+
+
+        //acao para o turista  visualizar as suas reservas 
+        public async Task<IActionResult> ReservasTurista(int? id)
+        {
+            /*
+            var trailsDbContext = _context.ReservaEquipamentos.Include(r => r.Trails).Include(r => r.Turistas);
+            return View(await trailsDbContext.ToListAsync());
+             */
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            /*var loginClass = await _context.Turistas
+                .SingleOrDefaultAsync(m => m.TuristaId == id);*/
+            // var turista = await _context.Turistas.SingleOrDefaultAsync(t => t.username == nomeUser);
+            //  var Reserva1Turista =await _context.ReservaEquipamentos.SingleOrDefaultAsync(t => t.TuristaId == id);
+            var Reserva1Turista = await _context.ReservaEquipamentos.Where(r => r.TuristaId == id).ToListAsync();
+
+
+            // return View(await trailsDbContext.ToListAsync());
+
+            return View(Reserva1Turista);
+        }
+
     }
 }

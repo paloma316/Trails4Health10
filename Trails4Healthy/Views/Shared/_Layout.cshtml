@@ -34,20 +34,20 @@
                             <li><a asp-controller="Home" asp-action="Fauna">Fauna</a></li>
                             <li><a asp-controller="Home" asp-action="Flora">Flora</a></li>
 
-                           
+
                         </ul>
                     </li>
-         
-           
+
+
                     <li class="dropdown">
                         <a a asp-area="" asp-controller="Trilho" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown">Trilho (old)<b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
-                            <li><a asp-controller="Trails" asp-action="NewTrail" >Criar Trilho</a></li>
+                            <li><a asp-controller="Trails" asp-action="NewTrail">Criar Trilho</a></li>
 
                             <li><a asp-controller="Login" asp-action="Login">Iniciar Trilho</a></li>
-                            
-                            
+
+
 
                             <li><a asp-controller="Login" asp-action="Login">Eliminar Trilho</a></li>
                             <li><a asp-controller="Login" asp-action="Login">Editar Trilho</a></li>
@@ -64,16 +64,34 @@
                             <li><a asp-controller="Trail" asp-action="Index">Ver Trilhos</a></li>
                             <li><a asp-controller="Login" asp-action="Login">Iniciar Trilho</a></li>
 
-                           
+
 
                         </ul>
                     </li>
 
-                    <li><a asp-area="" asp-controller="ReservaEquipamentos" asp-action="Index">Reservar Equipamentos</a></li>
-                    <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
+
+                    <li class="dropdown">
+                        <a a asp-area="" asp-controller="Trilho" asp-action="Index" class="dropdown-toggle" data-toggle="dropdown">Reserva Equipamento<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a asp-controller="ReservaEquipamentos" asp-action="Create">Criar Reserva de Equipamento</a></li>
+                            <li><a asp-controller="ReservaEquipamentos" asp-action="">Consultar Reserva</a></li>
+                            <li><a asp-controller="ReservaEquipamentos" asp-action=""></a></li>
+                            <li><a asp-area="" asp-controller="ReservaEquipamentos" asp-action="Index">Consultar todas as Reservas</a></li>
+
+
+
+
+
+                        </ul>
+                    </li>
+
+
+                    
+
                     <li><a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a></li>
-                    
-                    
+
+
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

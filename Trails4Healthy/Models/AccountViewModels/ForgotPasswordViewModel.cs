@@ -9,7 +9,7 @@ namespace Trails4Healthy.Models.AccountViewModels
     public class ForgotPasswordViewModel
     {
         [Required]
-        [EmailAddress]
+       // [EmailAddress]
         public string Email { get; set; }
     }
 }

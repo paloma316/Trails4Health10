@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Trails4Healthy.Data;
 using Trails4Healthy.Models;
 using Trails4Healthy.Models.AccountViewModels;
 using Trails4Healthy.Services;
@@ -27,6 +28,7 @@ namespace Trails4Healthy.Controllers
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
+             RoleManager<IdentityRole> roleManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger)
@@ -35,6 +37,7 @@ namespace Trails4Healthy.Controllers
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            UsersSeedData.EnsurePopulatedAsync(userManager, roleManager).Wait();
         }
 
         [TempData]

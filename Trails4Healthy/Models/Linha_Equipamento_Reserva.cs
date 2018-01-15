@@ -18,7 +18,7 @@ namespace Trails4Healthy.Models
         public int Quantidade { get; set; }
         public decimal ValorParcial { get;set; }
 
-           public ReservaEquipamentos Reservas { get; set; }
+         public ReservaEquipamentos Reservas { get; set; }
          public Equipamento Equipamentos { get; set; }
 
 
