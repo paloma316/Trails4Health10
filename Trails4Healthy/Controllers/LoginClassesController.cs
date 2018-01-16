@@ -13,6 +13,8 @@ namespace Trails4Healthy.Controllers
     public class LoginClassesController : Controller
     {
         private readonly TrailsDbContext _context;
+        string linhaEquipamento;
+        int reservaId=0;
 
         public LoginClassesController(TrailsDbContext context)
         {
@@ -162,6 +164,7 @@ namespace Trails4Healthy.Controllers
             {
                 return NotFound();
             }
+           
 
             /*var loginClass = await _context.Turistas
                 .SingleOrDefaultAsync(m => m.TuristaId == id);*/
@@ -169,8 +172,8 @@ namespace Trails4Healthy.Controllers
             //  var Reserva1Turista =await _context.ReservaEquipamentos.SingleOrDefaultAsync(t => t.TuristaId == id);
             // var Reserva1Turista = await _context.ReservaEquipamentos.Where(r => r.TuristaId == id).ToListAsync();
             var Reserva1Turista = await _context.ReservaEquipamentos.Include(trilho=>trilho.Trails).Where(r => r.TuristaId == id).ToListAsync();
-
-            //  var trailsDbContext = _context.ReservaEquipamentos.Include(r => r.Trails).Include(r => r.Turistas);
+           
+         // linhaEquipamento= _context.ReservaEquipamentos.Include(r => r.Trails).Include(r => r.Turistas);
 
             // return View(await trailsDbContext.ToListAsync());
 
@@ -180,14 +183,58 @@ namespace Trails4Healthy.Controllers
 
         //Linha Reserva Equipamento
         // GET: Linha_Equipamento_Reserva
-        public async Task<IActionResult> CriarLinhaEquipamento(int? id)
+       
+        public async Task<IActionResult> CriarLinhaEquipamento(int id)
         {
 
             //  var trailsDbContext = _context.Linha_Equipamento.Include(l => l.Equipamentos).Include(l => l.Reservas);
 
             //var Reserva1Turista = await _context.ReservaEquipamentos.Where(r => r.TuristaId == id).ToListAsync();
-            var trailsDbContext = _context.Linha_Equipamento.Include(l => l.Equipamentos).Where(r=>r.ReservaId ==id);
-            return View(await trailsDbContext.ToListAsync());
+
+
+            // var linhaEquipamento = _context.Linha_Equipamento.Include(l => l.Equipamentos).Where(r=>r.ReservaId ==id);
+            // return View(await trailsDbContext.ToListAsync());
+
+            var linhaEquipamento = _context.Linha_Equipamento.Include(l => l.Equipamentos).Where(r => r.ReservaId == id);
+            //reservaEquipamentos.Turistas = turista;
+           
+                reservaId = id;
+          
+
+            ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "EquipamentoId");
+            return View();
+
+        }
+        //post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CriarLinhaEquipamento([Bind("LinhaEquipamentoId,EquipamentoId,ReservaId,Quantidade,ValorParcial")] Linha_Equipamento_Reserva linha_Equipamento_Reserva)
+        {
+
+            /*  var nomeUser = User.Identity.Name;
+                            var turista = await _context.Turistas.SingleOrDefaultAsync(t => t.username == nomeUser);
+                            reservaEquipamentos.Turistas = turista;
+
+
+                            _context.Add(reservaEquipamentos);
+                            await _context.SaveChangesAsync();*/
+
+
+            
+
+
+            if (ModelState.IsValid)
+            {
+                //var trailsDbContext =  _context.Linha_Equipamento.SingleOrDefault(r=>r.ReservaId==id);
+                //linha_Equipamento_Reserva. = trailsDbContext;
+                reservaId = linha_Equipamento_Reserva.ReservaId;
+                _context.Add(linha_Equipamento_Reserva);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["EquipamentoId"] = new SelectList(_context.Equipamento, "EquipamentoId", "EquipamentoId", linha_Equipamento_Reserva.EquipamentoId);
+            ViewData["ReservaId"] = new SelectList(_context.ReservaEquipamentos, "ReservaId", "ReservaId", linha_Equipamento_Reserva.ReservaId);
+            return View(linha_Equipamento_Reserva);
         }
 
     }
