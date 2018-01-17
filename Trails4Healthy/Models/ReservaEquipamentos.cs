@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,7 +9,6 @@ namespace Trails4Healthy.Models
     public class ReservaEquipamentos
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReservaId { get; set; }
         public int TuristaId { get; set; }
         public int TrilhoId { get; set; }
