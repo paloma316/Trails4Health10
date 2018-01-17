@@ -36,16 +36,6 @@ namespace Trails4Healthy.Data
 
            
 
-            ////Turista Dados
-            if (!dbContext.Turistas.Any())
-            {
-                dbContext.Turistas.AddRange(
-                new LoginClass { Nome = "Afonso Costa", Morada = "Guarda", Numero_Telefone = "930886504", username = "afonsino", Pass = "banana" },
-               new LoginClass { Nome = "Marta", Morada = "Aveiro", Numero_Telefone = "920819221", username = "martinha", Pass = "gostoPeixe1" },
-                new LoginClass { Nome = "Zeca Ernesto", Morada = "Viseu", Numero_Telefone = "927349343", username = "ernestinho", Pass = "Ernestinho2" }
-               );
-                dbContext.SaveChanges();
-            }
 
             //Trilho
             if (!dbContext.Trails.Any())
@@ -62,27 +52,7 @@ namespace Trails4Healthy.Data
                 );
                 dbContext.SaveChanges();
             }
-            if (!dbContext.Equipamento.Any())
-            {
-                dbContext.Equipamento.AddRange(
-       new Equipamento { NomeEquipamento = "Chapéu", DescricaoEquipamento = "Acessorio para a proteção da cabeça", ValorUnidade = 2,Disponível=true },
-       new Equipamento { NomeEquipamento = "Sapatos", DescricaoEquipamento = "Acessorio para a proteção dos pes", ValorUnidade = 10,  Disponível = true },
-        new Equipamento { NomeEquipamento = "Mochila", DescricaoEquipamento = "Acessorio para guarda objetos pessoais", ValorUnidade = 2, Disponível = true },
-         new Equipamento { NomeEquipamento = "Relógio", DescricaoEquipamento = "Acessorio que permite visualisar as horas", ValorUnidade = 2, Disponível = false },
-          new Equipamento { NomeEquipamento = "Casaco", DescricaoEquipamento = "Acessorio para a proteção contra o frio", ValorUnidade = 2, Disponível = true },
-         new Equipamento { NomeEquipamento = "Binóculos", DescricaoEquipamento = "Acessorio que permite observar de longe", ValorUnidade = 2, Disponível = false},
-         new Equipamento { NomeEquipamento = "Óculos", DescricaoEquipamento = "Acessorio para a proteção contra o Sol", ValorUnidade = 2, Disponível = true }
-
-       );
-
-        dbContext.SaveChanges();
-            }
-
-
-            //   Professor professor1 = dbContext.Professor.SingleOrDefault(p => p.NIF == "236512378");
-            Equipamento Eq1 = dbContext.Equipamento.SingleOrDefault(eq => eq.EquipamentoId == 1);
-            Equipamento Eq2 = dbContext.Equipamento.SingleOrDefault(eq => eq.EquipamentoId == 2);
-            ReservaEquipamentos Res1 = dbContext.ReservaEquipamentos.SingleOrDefault(r => r.ReservaId == 1);
+        
             //Linha Equipamento
             /*
             if (!dbContext.Linha_Equipamento.Any())

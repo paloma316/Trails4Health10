@@ -15,7 +15,10 @@ namespace Trails4Healthy.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TrailID { get; set; }
+        [Required(ErrorMessage = "INTRODUZA O NOME")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "INTRODUZA A DISTÂNCIA")]
+        [RegularExpression(@"\d+(\.\d{0,2})?", ErrorMessage = "Introduza uma distância válida, só pode ser numérica, opção de duas casas decimais")]
         public string Distance { get; set; }
         public int DifficultyId { get; set; }
         public Difficulty Difficulty { get; set; }

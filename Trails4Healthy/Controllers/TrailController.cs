@@ -20,10 +20,26 @@ namespace Trails4Healthy.Controllers
         }
 
         // GET: Trail
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            var trailsDbContext = _context.Trails.Include(t => t.Difficulty);
-            return View(await trailsDbContext.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+            
+            var trails = from s in _context.Trails
+                           select s;
+            switch (sortOrder)
+            {
+                case "Name":
+                    trails = trails.OrderByDescending(s => s.Name);
+                    break;
+                case "Difficuly":
+                    trails = trails.OrderBy(s => s.DifficultyId);
+                    break;
+                case "Available":
+                    trails = trails.OrderBy(s => s.Available);
+                    break;
+                
+            }
+            return View(await trails.AsNoTracking().ToListAsync());
         }
 
         // GET: Trail/Details/5
@@ -48,7 +64,7 @@ namespace Trails4Healthy.Controllers
         // GET: Trail/Create
         public IActionResult Create()
         {
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId");
+            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "Name");
             return View();
         }
 
@@ -65,7 +81,7 @@ namespace Trails4Healthy.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId", trail.DifficultyId);
+            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "Name", trail.DifficultyId);
             return View(trail);
         }
 
@@ -82,7 +98,7 @@ namespace Trails4Healthy.Controllers
             {
                 return NotFound();
             }
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId", trail.DifficultyId);
+            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "Name", trail.DifficultyId);
             return View(trail);
         }
 
@@ -118,7 +134,7 @@ namespace Trails4Healthy.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "DifficultyId", trail.DifficultyId);
+            ViewData["DifficultyId"] = new SelectList(_context.Difficulties, "DifficultyId", "Name", trail.DifficultyId);
             return View(trail);
         }
 
