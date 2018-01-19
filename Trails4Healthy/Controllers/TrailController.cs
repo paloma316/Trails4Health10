@@ -20,26 +20,10 @@ namespace Trails4Healthy.Controllers
         }
 
         // GET: Trail
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index()
         {
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
-            
-            var trails = from s in _context.Trails
-                           select s;
-            switch (sortOrder)
-            {
-                case "Name":
-                    trails = trails.OrderByDescending(s => s.Name);
-                    break;
-                case "Difficuly":
-                    trails = trails.OrderBy(s => s.DifficultyId);
-                    break;
-                case "Available":
-                    trails = trails.OrderBy(s => s.Available);
-                    break;
-                
-            }
-            return View(await trails.AsNoTracking().ToListAsync());
+            var trailsDbContext = _context.Trails.Include(t => t.Difficulty);
+            return View(await trailsDbContext.ToListAsync());
         }
 
         // GET: Trail/Details/5
