@@ -1,12 +1,12 @@
 ﻿@model Trails4Healthy.Models.Trail
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar";
 }
 
-<h2>Create</h2>
+<h2>Criar</h2>
 
-<h4>Trail</h4>
+<h4>Trilho</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -29,7 +29,7 @@
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Available" /> @Html.DisplayNameFor(model => model.Available)
+                        <input asp-for="Available" /> Disponibilidade
                     </label>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar para a lista</a>
 </div>
 
 @section Scripts {

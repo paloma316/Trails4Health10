@@ -22,11 +22,15 @@
             <!--Text-->
         
             <p >Difficuldade: @Html.DisplayFor(modelItem => item.Difficulty.Name)</p>
-            <p >Distância: @Html.DisplayFor(modelItem => item.Distance)</p>
-            <p >Disponibilidade: @Html.DisplayFor(modelItem => item.Available)</p>
+            <p >Distância: @Html.DisplayFor(modelItem => item.Distance) m</p>
+             @if (item.Available == true)
+             {
+                <p>Estado: Disponível</p>
+                    } else {<p>Estado: Não Disponível </p>}
+                
 
-            
-            <a asp-action="Details" asp-route-id="@item.TrailID" class="btn btn-primary">Details</a> |
+
+            <a asp-action="Details" asp-route-id="@item.TrailID" class="btn btn-primary">Detalhes</a> 
             <p></p>
         </div>
 

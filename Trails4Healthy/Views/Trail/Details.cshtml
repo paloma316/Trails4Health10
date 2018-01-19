@@ -4,32 +4,32 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
-    <h4>Trail</h4>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            Nome
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Distance)
+            Distância
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Distance)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Available)
+            Disponibilidade
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Available)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Difficulty)
+            Dificuldade
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Difficulty.Name)
@@ -37,6 +37,15 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.TrailID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    @if (Model.Available == true)
+    {
+        <p><a asp-action="Index1" class="btn btn-primary">Reservar trilho</a></p> 
+
+    }
+    else
+    {
+        <p style="color:red">trilho não disponivel para reserva</p>
+
+    }
+    <a asp-action="Index1">Voltar para a lista</a>
 </div>
