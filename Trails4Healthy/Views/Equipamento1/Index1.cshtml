@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Trails4Healthy.Models.Equipamento>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Selecione o Equipamento que deseja</h2>
+
+@foreach (var item in Model)
+
+{
+
+
+    
+    @Html.DisplayFor(modelItem => item.NomeEquipamento)
+}
+
+

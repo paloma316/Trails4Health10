@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Trails4Healthy.Models.Linha_Equipamento_Reserva>
+
+
+@{
+    ViewData["Title"] = "AlugarEquipamento";
+}
+
+<html>
+<body>
+    <h2>AlugarEquipamento</h2>
+  
+    <table>
+        <tr>
+            <td>Equipamento</td>
+            <td> @foreach (var item in Model)
+            {
+
+            }
+            </td>
+        </tr>
+
+
+        <tr>
+
+            <td>Quantidade:</td>
+            <!--asp-for=quantidade, tabela:Linha Empresa Equipamento-->
+        <td></td>
+        </tr>
+        <tr>
+            <td>
+               
+             
+            </td>
+            <td>
+                <!--asp-for=DataReserva , tabela:ReservaEquipamento-->
+                <input />
+                <a asp-action="Index" asp-controller="Equipamento">Back</a></td>
+        </tr>
+       
+    </table>
+    
+    
+    
+  
+  
+   
+   
+  
+
+</body>
+</html>

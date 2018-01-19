@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Equipamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+<html>
+<head>
+  <style>
+      .ima {
+          margin: 5px;
+          border: 1px solid #ccc;
+      }
+
+      h1 {
+          padding-top: 30px;
+          margin-top: 30px;
+      }
+
+      div.ima:hover {
+          border: 1px black solid;
+      }
+  </style>
+
+</head>
+
+<body>
+
+    <h1>Reserve aqui os Equipamentos</h1>
+
+    <div class="ima" style="float:left;position:relative;">
+
+        
+
+
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/2016-Women-Men-tenis-Lace-Up-sport-Casual-Shoes-Flats-zapatillas-deportivas-mujer-tenis-masculino-esportivo.jpg" width="150" height="150" style="margin:10px;" id="id1" /></a>
+        <!--Sapatos-->
+        <div class="desc">Sapatos</div>
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/20161028100720_35760.jpg" width="150" height="150" style="margin:10px;" id="id2" /></a>
+        <!--Chapéu-->
+        <div class="desc">Chapéu</div>
+
+    </div>
+
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/80362_1472758575_g.jpg" width="150" height="150" style="margin:10px;"  id="id3"/></a>
+        <!--Mochila-->
+        <div class="desc">Mochila</div>
+
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/D_Q_NP_347815-MLB25324478859_012017-Q.jpg" width="150" height="150" style="margin:10px;" id="id4" /></a>
+        <!--Relogio-->
+        <div class="desc">Rélogio</div>
+
+    </div>
+
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/FOTO-4-jpg.jpg" width="150" height="150" style="margin:10px;" id="id5"/></a>
+        <!--Casaco-->
+        <div class="desc">Casaco</div>
+
+    </div>
+ 
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/binoculo.jpg" width="150" height="150" style="margin:10px;" id="id8" /></a>
+        <!--petrometro-->
+        <div class="desc">Binóculos</div>
+
+    </div>
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/bussola.jpg" width="150" height="150" style="margin:10px;" id="id9"/></a>
+        <!--petrometro-->
+        <div class="desc">Bússola</div>
+
+    </div>
+   
+    <div class="ima" style="float:left;position:relative;">
+        <a asp-action="AlugarEquipamento" asp-route-id=""><img src="~/images/equipamentos/oculosSol.jpg" width="150" height="150" style="margin:10px;" id="id11"/></a>
+        <!--petrometro-->
+        <div class="desc">Óculos</div>
+
+    </div>
+
+
+</body>
+
+</html>

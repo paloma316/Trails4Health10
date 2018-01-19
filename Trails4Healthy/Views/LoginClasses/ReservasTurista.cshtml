@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Trails4Healthy.Models.ReservaEquipamentos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Reservas Feitas pelo Utilizador</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_Reserva_Efetuada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inicio_Reserva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Turistas)
+            </th>
+
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Reserva_Efetuada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inicio_Reserva)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trails.TrailID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Turistas.TuristaId)
+                </td>
+                <td>
+                    <a asp-action="CriarLinhaEquipamento" asp-route-id="@item.ReservaId" asp-controller="LoginClasses">Reservar Equipamento</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    
+    <a asp-action="Index">Back to List</a>
+</div>

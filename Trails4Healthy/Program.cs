@@ -16,11 +16,15 @@ namespace Trails4Healthy
         {
             BuildWebHost(args).Run();
         }
-
+        
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-            .UseDefaultServiceProvider(options=>options.ValidateScopes=false)
-                .Build();
+           WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+    .UseDefaultServiceProvider(options=>options.ValidateScopes=false)
+        .Build();
+        
+        
+
+
     }
 }

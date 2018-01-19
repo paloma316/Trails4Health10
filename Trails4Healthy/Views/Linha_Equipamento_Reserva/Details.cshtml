@@ -1,0 +1,48 @@
+﻿@model Trails4Healthy.Models.Linha_Equipamento_Reserva
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Linha_Equipamento_Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LinhaEquipamentoId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LinhaEquipamentoId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorParcial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ValorParcial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Equipamentos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Equipamentos.EquipamentoId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Reservas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reservas.ReservaId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

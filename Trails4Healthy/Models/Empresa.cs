@@ -9,8 +9,10 @@ namespace Trails4Healthy.Models
     public class Empresa
     {
         [Key]
-        public int IdEmpresa { get; set; }
+        public int EmpresaId { get; set; }
         public string Contactos { get; set; }
         public string NomeEmpresa { get; set; }
+
+        public ICollection<Equipamento> Equipqmento { get; set; }
     }
 }

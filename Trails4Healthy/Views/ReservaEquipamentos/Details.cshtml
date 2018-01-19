@@ -1,0 +1,42 @@
+﻿@model Trails4Healthy.Models.ReservaEquipamentos
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReservaEquipamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_Reserva_Efetuada)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Data_Reserva_Efetuada)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inicio_Reserva)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inicio_Reserva)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Trails)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Trails.TrailID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Turistas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Turistas.TuristaId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ReservaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
