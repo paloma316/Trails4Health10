@@ -25,6 +25,11 @@ namespace Trails4Healthy.Controllers
             var trailsDbContext = _context.Trails.Include(t => t.Difficulty);
             return View(await trailsDbContext.ToListAsync());
         }
+        public async Task<IActionResult> Index1()
+        {
+            var trailsDbContext = _context.Trails.Include(t => t.Difficulty);
+            return View(await trailsDbContext.ToListAsync());
+        }
 
         // GET: Trail/Details/5
         public async Task<IActionResult> Details(int? id)

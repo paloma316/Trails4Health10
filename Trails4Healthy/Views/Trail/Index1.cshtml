@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Trails4Healthy.Models.Trail>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Index">Ver como Administrador</a>
+    
+@foreach(var item in Model){
+    <div style="border:1px solid black; border-radius:5px; width:auto;position:relative;height:200px; background-image:url(https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg)">
+
+        
+        
+
+        <!--Card content-->
+        <div style="text-align:center;position:absolute;;top:0;left:0;z-index: 10; background-color:rgba(255, 255, 255,0.4); width: 50%; height:200px">
+            <!--Title-->
+            <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+            <!--Text-->
+        
+            <p >Difficuldade: @Html.DisplayFor(modelItem => item.Difficulty.Name)</p>
+            <p >Distância: @Html.DisplayFor(modelItem => item.Distance)</p>
+            <p >Disponibilidade: @Html.DisplayFor(modelItem => item.Available)</p>
+
+            
+            <a asp-action="Details" asp-route-id="@item.TrailID" class="btn btn-primary">Details</a> |
+            <p></p>
+        </div>
+
+    </div>
+    <p />
+    <p />
+}
